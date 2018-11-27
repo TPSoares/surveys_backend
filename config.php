@@ -4,17 +4,17 @@
     $config = array();
 
     if(ENVIRONMENT == "development") {
-        define("BASE_URL", "http://localhost/projects/estrutura_mvc/");
-        $config["dbname"] = "estrutura_mvc";
-        $config["host"] = "localhost";
-        $config["dbuser"] = "admin";
-        $config["dbpass"] = "admin";
+        define("BASE_URL", "yourbaseurl");
+        $config["dbname"] = "yourdbname";
+        $config["host"] = "yourhost";
+        $config["dbuser"] = "yourdbuser";
+        $config["dbpass"] = "yourdbpass";
     } else {
-        define("BASE_URL", "http://localhost/projects/estrutura_mvc/");
-        $config["dbname"] = "estrutura_mvc";
-        $config["host"] = "localhost";
-        $config["dbuser"] = "admin";
-        $config["dbpass"] = "admin";
+        define("BASE_URL", "yourbaseurl");
+        $config["dbname"] = "yourdbname";
+        $config["host"] = "yourhost";
+        $config["dbuser"] = "yourdbuser";
+        $config["dbpass"] = "yourdbpass";
     }
 
     global $db;
