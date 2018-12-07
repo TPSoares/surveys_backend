@@ -1,1 +1,1 @@
-<h1>Hello world!</h1>
+<a href="<?php echo BASE_URL; ?>tarefas">Ir para tabela</a>
