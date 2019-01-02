@@ -4,8 +4,8 @@
     $config = array();
 
     if(ENVIRONMENT == "development") {
-        define("BASE_URL", "http://localhost/dot_challenge/questao4/");
-        $config["dbname"] = "dot_challenge";
+        define("BASE_URL", "http://localhost/mvc_structure");
+        $config["dbname"] = "dbname";
         $config["host"] = "localhost";
         $config["dbuser"] = "tenodar";
         $config["dbpass"] = "teste";
