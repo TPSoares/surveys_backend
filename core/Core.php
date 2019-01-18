@@ -1,4 +1,6 @@
 <?php
+    namespace Core;
+    
     class Core {
         public function run() {
             $url = "/";
@@ -33,7 +35,12 @@
                 $currentAction = "index";
             }
 
-            $controller = new $currentController();
+            $currentController = ucfirst($currentController);
+
+            $prefix = "\Controllers\\";
+
+            $newController = $prefix.$currentController;
+            $controller = new $newController();
 
             call_user_func_array(array($controller, $currentAction), $params);
         }

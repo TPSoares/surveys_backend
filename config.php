@@ -4,11 +4,11 @@
     $config = array();
 
     if(ENVIRONMENT == "development") {
-        define("BASE_URL", "http://localhost/mvc_structure");
-        $config["dbname"] = "dbname";
+        define("BASE_URL", "http://localhost/restaurant_api/");
+        $config["dbname"] = "restaurant";
         $config["host"] = "localhost";
         $config["dbuser"] = "root";
-        $config["dbpass"] = "rot";
+        $config["dbpass"] = "root";
     } else {
         define("BASE_URL", "yourbaseurl");
         $config["dbname"] = "yourdbname";

@@ -1,5 +1,7 @@
 <?php
-    class controller {
+    namespace Core;
+
+    class Controller {
 
         public function loadView($viewName, $viewData = array()) {
 
