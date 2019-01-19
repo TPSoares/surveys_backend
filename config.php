@@ -4,11 +4,11 @@
     $config = array();
 
     if(ENVIRONMENT == "development") {
-        define("BASE_URL", "http://localhost/restaurant_api/");
-        $config["dbname"] = "restaurant";
-        $config["host"] = "localhost";
-        $config["dbuser"] = "root";
-        $config["dbpass"] = "root";
+        define("BASE_URL", "yourbaseurl");
+        $config["dbname"] = "yourdbname";
+        $config["host"] = "yourhost";
+        $config["dbuser"] = "yourdbuser";
+        $config["dbpass"] = "yourdbpass";
     } else {
         define("BASE_URL", "yourbaseurl");
         $config["dbname"] = "yourdbname";
