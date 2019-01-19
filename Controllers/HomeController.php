@@ -7,13 +7,23 @@
     {
         public function index() 
         {
+            // echo "MÉTODO: " . $this->getMethod() . "\n";
+            // print_r($this->getRequestData());
 
-            $data = array(
-            
+            $array = array(
+                "nome" => "Thiago Pina",
+                "idade" => 25
             );
 
-            echo "DOTA 2";
+            $this->returnJson($array);
+        }
 
+        public function testando() {
+            echo "Funcionou!";
+        }
+
+        public function getUser($id) {
+            echo "ID: " . $id;
         }
     }
 ?>

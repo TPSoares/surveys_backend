@@ -9,6 +9,7 @@ ini_set('display_errors', 1);
 
     require "vendor/autoload.php";
     require "config.php";
+    require "routers.php";
 
     // spl_autoload_register(function($class) {
         
