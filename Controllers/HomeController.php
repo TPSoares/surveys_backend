@@ -19,7 +19,7 @@
         }
 
         public function testando() {
-            echo "Funcionou!";
+            echo "Funcionou!!!";
         }
 
         public function getUser($id) {
