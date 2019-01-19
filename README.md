@@ -1,1 +1,1 @@
-Estrutura inicial para projetos em padrão MVC.
+Basic boilerplate to create PHP RESTful APIs
