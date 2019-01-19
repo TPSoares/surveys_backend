@@ -12,7 +12,7 @@
             
             );
 
-            echo "DOTA";
+            echo "DOTA 2";
 
         }
     }
