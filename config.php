@@ -4,17 +4,17 @@
     $config = array();
 
     if(ENVIRONMENT == "development") {
-        define("BASE_URL", "yourbaseurl");
-        $config["dbname"] = "yourdbname";
-        $config["host"] = "yourhost";
-        $config["dbuser"] = "yourdbuser";
-        $config["dbpass"] = "yourdbpass";
+        define("BASE_URL", "http://localhost/signoweb_backend/");
+        $config["dbname"] = "surveys";
+        $config["host"] = "localhost";
+        $config["dbuser"] = "root";
+        $config["dbpass"] = "root";
     } else {
-        define("BASE_URL", "yourbaseurl");
-        $config["dbname"] = "yourdbname";
-        $config["host"] = "yourhost";
-        $config["dbuser"] = "yourdbuser";
-        $config["dbpass"] = "yourdbpass";
+        define("BASE_URL", "http://localhost/signoweb_backend/");
+        $config["dbname"] = "surveys";
+        $config["host"] = "localhost";
+        $config["dbuser"] = "root";
+        $config["dbpass"] = "root";
     }
 
     global $db;
