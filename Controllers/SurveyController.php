@@ -71,7 +71,9 @@ class SurveyController extends Controller
                 break;
 
             case "DELETE":
-                
+                $survey = new Survey();
+                $array['data'] = $survey->deleteSurvey($id);
+
                 break;
             default:
                 http_response_code(500);

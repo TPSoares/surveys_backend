@@ -100,4 +100,20 @@ class Survey extends Model {
             return "Preencha os dados corretamente!";
         }
     }
+
+    public function deleteSurvey($id) {
+        $array = array();
+        $array = $this->getSurvey($id);
+
+        //delete all survey options before delete survey
+        $dish = new SurveyOptions();
+        $dish->deleteSurveyOptionsIfSurveyDeleted($id);
+
+        $sql = "DELETE FROM surveys WHERE id = :id";
+        $sql = $this->db->prepare($sql);
+        $sql->bindValue(":id", $id);
+        $sql->execute();
+
+        return "Survey deleted!";
+    }
 }
