@@ -4,6 +4,7 @@ namespace Controllers;
 
 use \Core\Controller;
 use \Models\Survey;
+use \Models\SurveyOptions;
 
 class SurveyController extends Controller 
 {
@@ -89,8 +90,13 @@ class SurveyController extends Controller
         $method = $this->getMethod();
      
         if($method == "GET") {
-            $surveys = new Survey;
+            $surveys = new Survey();
+            $surveyOptions = new SurveyOptions();
             $array['data'] = $surveys->getAllSurveys();
+
+            // foreach ($array['data']['surveys'] as $survey) {
+            //     $array['data']['surveys']['survey_options'] = $surveyOptions->getSurveyOptions($survey['id']);
+            // }
         } else {
             http_response_code(500);
             $array["error"] = "Método de requisição incompatível!";

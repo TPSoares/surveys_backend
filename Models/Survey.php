@@ -64,6 +64,13 @@ class Survey extends Model {
         if($sql->rowCount() > 0) {
             $array['surveys'] = $sql->fetchAll(\PDO::FETCH_ASSOC);
         }
+
+        $surveyOptions = new SurveyOptions();
+        foreach($array['surveys'] as $key => $survey) {
+            $array['surveys'][$key]['survey_options'] = $surveyOptions->getSurveyOptions($survey['id']);
+        }
+
+        // $array['surveys'] = $array['surveys'];
     
         return $array;
     }
@@ -120,8 +127,8 @@ class Survey extends Model {
         $array = $this->getSurvey($id);
 
         //delete all survey options before delete survey
-        $dish = new SurveyOptions();
-        $dish->deleteSurveyOptionsIfSurveyDeleted($id);
+        $surveyOptions = new SurveyOptions();
+        $surveyOptions->deleteSurveyOptionsIfSurveyDeleted($id);
 
         $sql = "DELETE FROM surveys WHERE id = :id";
         $sql = $this->db->prepare($sql);

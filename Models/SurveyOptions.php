@@ -16,4 +16,19 @@ class SurveyOptions extends Model {
 
         return "Survey options deleted!";
     }
+
+    public function getSurveyOptions($surveyId) {
+        $array = array();
+
+        $sql = "SELECT * FROM survey_options WHERE survey_id = :survey_id";
+        $sql = $this->db->prepare($sql);
+        $sql->bindValue(":survey_id", $surveyId);
+        $sql->execute();
+
+        if($sql->rowCount() > 0) {
+            $array = $sql->fetchAll(\PDO::FETCH_ASSOC);
+        }
+    
+        return $array;
+    }
 }
