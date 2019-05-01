@@ -54,6 +54,20 @@ class Survey extends Model {
      
     }
 
+    public function getAllSurveys() {
+        $array = array();
+
+        $sql = "SELECT * FROM surveys";
+        $sql = $this->db->prepare($sql);
+        $sql->execute();
+
+        if($sql->rowCount() > 0) {
+            $array['surveys'] = $sql->fetchAll(\PDO::FETCH_ASSOC);
+        }
+    
+        return $array;
+    }
+
     public function updateSurvey($id, $data) {
         $array = array();
         $array = $this->getSurvey($id);

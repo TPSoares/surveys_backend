@@ -83,4 +83,19 @@ class SurveyController extends Controller
 
         $this->returnJson($array);
     }
+
+    public function getAllSurveys() {
+        $array = array("error" => "");
+        $method = $this->getMethod();
+     
+        if($method == "GET") {
+            $surveys = new Survey;
+            $array['data'] = $surveys->getAllSurveys();
+        } else {
+            http_response_code(500);
+            $array["error"] = "Método de requisição incompatível!";
+        }
+
+        $this->returnJson($array);
+    }
 }
