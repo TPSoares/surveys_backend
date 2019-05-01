@@ -23,7 +23,6 @@ class SurveyController extends Controller
                 $this->returnJson($array);
             }
 
-
             if(!empty($data["title"]) && !empty($data["start_date"]) && !empty($data['end_date'])) {
 
                 $title = $data['title'];
@@ -51,6 +50,35 @@ class SurveyController extends Controller
 
         $this->returnJson($array);
 
+    }
 
+    public function surveyMethods($id) {
+        $array = array("error" => "");
+        $method = $this->getMethod();
+        $data = $this->getRequestData();
+
+        switch($method) {
+            case "GET":
+                $survey = new Survey();
+                $array["data"] = $survey->getSurvey($id);
+
+                break;
+
+            case "PUT":
+                $survey = new Survey();
+                $array['data'] = $survey->updateSurvey($id, $data);
+                
+                break;
+
+            case "DELETE":
+                
+                break;
+            default:
+                http_response_code(500);
+                $array["error"] = "Método não disponível!";
+                break;
+        }
+
+        $this->returnJson($array);
     }
 }

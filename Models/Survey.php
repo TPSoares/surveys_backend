@@ -36,8 +36,68 @@ class Survey extends Model {
             $sql->execute();
             
         }
-        
-
     }
- 
+
+    public function getSurvey($id) {
+        $array = array();
+
+        $sql = "SELECT * FROM surveys WHERE id = :id";
+        $sql = $this->db->prepare($sql);
+        $sql->bindValue(":id", $id);
+        $sql->execute();
+
+        if($sql->rowCount() > 0) {
+            $array['survey'] = $sql->fetchAll(\PDO::FETCH_ASSOC);
+        }
+    
+        return $array;
+     
+    }
+
+    public function updateSurvey($id, $data) {
+        $array = array();
+        $array = $this->getSurvey($id);
+
+        $toChange = array();
+
+        if(!empty($data["title"])) {
+            $toChange["title"] = $data["title"];
+        }
+        if(!empty($data["description"])){
+            $toChange["description"] = $data["description"];
+        }
+        
+        if(!empty($data["start_date"])) {
+            $toChange["start_date"] = $data["start_date"];
+        }
+
+        if(!empty($data["end_date"])) {
+            $toChange["end_date"] = $data["end_date"];
+        }
+
+        if(count($toChange) > 0) {
+
+           
+
+            $fields = array();
+            foreach ($toChange as $key => $value) {
+                $fields[] = $key . " = :" . $key; 
+            }
+
+            $sql = "UPDATE surveys SET " . implode(",", $fields) . " WHERE id = :id";
+            $sql = $this->db->prepare($sql);
+            $sql->bindValue(":id", $id);
+
+            foreach ($toChange as $key => $value) {
+                $sql->bindValue(":" . $key, $value);
+            }
+
+            $sql->execute();
+
+            return true;
+
+        } else {
+            return "Preencha os dados corretamente!";
+        }
+    }
 }
