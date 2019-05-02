@@ -70,9 +70,8 @@ class Survey extends Model {
             //gets survey options for each survey on database
             $array['surveys'][$key]['survey_options'] = $surveyOptions->getSurveyOptions($survey['id']);
             //converts date to d-m-Y
-            $array['surveys'][$key]['start_date'] = date("d-m-Y", strtotime($survey['start_date']));
-            $array['surveys'][$key]['end_date'] = date("d-m-Y", strtotime($survey['end_date']));
-
+            $array['surveys'][$key]['start_date'] = str_replace('-', '/', date("d-m-Y", strtotime($survey['start_date'])));
+            $array['surveys'][$key]['end_date'] = str_replace('-', '/', date("d-m-Y", strtotime($survey['end_date'])));
         }
 
         // $array['surveys'] = $array['surveys'];
