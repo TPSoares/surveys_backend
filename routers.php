@@ -6,3 +6,5 @@
     $routes["/surveys/new"] = "/survey/addSurvey/:id"; 
     $routes["/surveys"] = "/survey/getAllSurveys"; 
     $routes["/surveys/{id}"] = "/survey/surveyMethods/:id"; 
+
+    $routes["/survey_options/{id}"] = "/surveyoptions/addSurvey/:id"; 

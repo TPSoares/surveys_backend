@@ -5,6 +5,15 @@ namespace Models;
 use \Core\Model;
 
 class SurveyOptions extends Model {
+
+    public function createVote($id) {
+
+        $sql = "UPDATE survey_options SET votes = votes + 1 WHERE id = :id";
+        $sql = $this->db->prepare($sql);
+        $sql->bindValue(":id", $id);
+        $sql->execute();
+
+    }
  
 
     public function deleteSurveyOptionsIfSurveyDeleted($id) {
