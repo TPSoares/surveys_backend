@@ -19,7 +19,7 @@ class SurveyOptionsController extends Controller
             $survey_options = new SurveyOptions();
 
             try {
-                $survey_options->createVote($id);
+                $array['data'] = $survey_options->createVote($id);
 
             } catch (\Exception $e) {
                 $array['error'] = $e->getMessage();
