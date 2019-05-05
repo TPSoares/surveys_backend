@@ -99,16 +99,9 @@ class SurveyController extends Controller
             
             case "POST":
     
-                if(!empty($data["title"]) && !empty($data["start_date"]) && !empty($data['end_date'])) {
+                $survey = new Survey();
+                $array['data'] = $survey->updateSurvey($id, $data);
 
-                    $survey = new Survey();
-                    $array['data'] = $survey->updateSurvey($id, $data);
-         
-                } else {
-                    http_response_code(500);
-                    $array["error"] = "Preencha todos os campos!";
-                }
-                
                 break;
 
             default:
