@@ -2,6 +2,7 @@
     global $routes;
     $routes = array();
 
+    //personalized routes
     $routes["/teste"] = "/home/testando"; 
     $routes["/surveys/new"] = "/survey/addSurvey"; 
     $routes["/surveys"] = "/survey/getAllSurveys"; 
