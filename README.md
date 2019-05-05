@@ -61,4 +61,4 @@ composer install
 ?>
 ```
 
-* To run the project, simply start your local host
+* To run the API, simply start your local host
