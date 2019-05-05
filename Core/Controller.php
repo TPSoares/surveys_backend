@@ -20,6 +20,7 @@
                     break;
 
                 case "POST":
+                
                     $data = json_decode(file_get_contents("php://input"));
 
                     if(is_null($data)) {

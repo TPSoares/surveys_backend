@@ -8,7 +8,7 @@ use \Models\SurveyOptions;
 
 class SurveyOptionsController extends Controller 
 {
-    public function addSurvey($id) {
+    public function addSurveyVote($id) {
         $array = array("error" => "");
 
         $method = $this->getMethod();

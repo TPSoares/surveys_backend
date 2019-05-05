@@ -57,7 +57,7 @@ class Survey extends Model {
     public function getAllSurveys() {
         $array = array();
 
-        $sql = "SELECT * FROM surveys";
+        $sql = "SELECT * FROM surveys ORDER BY id DESC";
         $sql = $this->db->prepare($sql);
         $sql->execute();
 

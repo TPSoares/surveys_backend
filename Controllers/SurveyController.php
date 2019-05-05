@@ -14,8 +14,10 @@ class SurveyController extends Controller
         $method = $this->getMethod();
         $data = $this->getRequestData();
 
+        
         if($method == "POST") {
 
+            //separate all survey options
             $surveyOptions = explode(",", $data['survey_options']);
 
             if(count($surveyOptions) < 3) {
@@ -58,6 +60,7 @@ class SurveyController extends Controller
         $method = $this->getMethod();
         $data = $this->getRequestData();
 
+
         switch($method) {
             case "GET":
                 $survey = new Survey();
@@ -66,16 +69,41 @@ class SurveyController extends Controller
                 break;
 
             case "PUT":
+    
                 $survey = new Survey();
                 $array['data'] = $survey->updateSurvey($id, $data);
                 
                 break;
 
-            case "DELETE":
+            case "POST":
                 $survey = new Survey();
                 $array['data'] = $survey->deleteSurvey($id);
 
                 break;
+            default:
+                http_response_code(500);
+                $array["error"] = "Método não disponível!";
+                break;
+        }
+
+        $this->returnJson($array);
+    }
+
+    public function edit($id) {
+        $array = array("error" => "");
+        $method = $this->getMethod();
+        $data = $this->getRequestData();
+
+
+        switch($method) {
+            
+            case "POST":
+    
+                $survey = new Survey();
+                $array['data'] = $survey->updateSurvey($id, $data);
+                
+                break;
+
             default:
                 http_response_code(500);
                 $array["error"] = "Método não disponível!";
